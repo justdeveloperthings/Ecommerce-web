@@ -606,7 +606,7 @@ footer .newsletter-container{
         display: flex;
     }
     .content h2{
-        font-size: 1.7rem;
+        font-size: 1.9rem;
     }
     .searchbar{
         display: none;
@@ -697,10 +697,11 @@ footer .newsletter-container{
 
 @media only screen and (max-width:441px){
     .cloth{
-        width: 9rem;
+        width: 10rem;
+        margin: 10px;
     }
     .cloth img{
-        height: 9rem;
+        height: 10rem;
     }
 }
 
