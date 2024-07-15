@@ -305,7 +305,6 @@
     <script src="https://kit.fontawesome.com/c23fbbee97.js" crossorigin="anonymous"></script>
     <script>
             document.addEventListener('DOMContentLoaded', function () {
-
                 const fabars = document.querySelector('.fa-bars');
                 const navbar = document.querySelector('.navbar');
                 const navLinks = document.querySelector('.nav-links');
@@ -315,37 +314,51 @@
                 const searchbar = document.querySelector('.searchbar');
                 const cart = document.querySelector('.cart');
                 const account = document.querySelector('.account');
-
     
-
-                fabars.addEventListener('click', function () {
+                fabars.addEventListener('click', function (event) {
+                    event.stopPropagation();
                     navbar.classList.toggle('navbar-expand');
                     navsec1.classList.toggle('nav-sec-1-expand');
                     navsec2.classList.toggle('nav-sec-2-expand');
                     navLinks.classList.toggle('nav-links-expand');
                     fabars.classList.toggle('fa-bars-expand');
                 });
-
-
-                
-                searchimg.addEventListener('click', function(){
+    
+                searchimg.addEventListener('click', function (event) {
                     searchbar.classList.toggle('showsearchbar');
                     searchimg.classList.toggle('remove');
                     cart.classList.toggle('remove');
                     account.classList.toggle('remove');
+
+                    if (searchbar.classList.contains('showsearchbar')) {
+                        searchbar.focus();
+                    }
                     event.stopPropagation();
                 });
-
+    
                 document.addEventListener('click', function () {
                     if (searchbar.classList.contains('showsearchbar')) {
                         searchbar.classList.remove('showsearchbar');
-                        searchimg.classList.toggle('remove');
+                        searchimg.classList.remove('remove');
                         cart.classList.remove('remove');
                         account.classList.remove('remove');
-                        event.stopPropagation();
+                    }
+                    if (navbar.classList.contains('navbar-expand')) {
+                        navbar.classList.remove('navbar-expand');
+                        navsec1.classList.remove('nav-sec-1-expand');
+                        navsec2.classList.remove('nav-sec-2-expand');
+                        navLinks.classList.remove('nav-links-expand');
+                        fabars.classList.remove('fa-bars-expand');
                     }
                 });
-
+    
+                navbar.addEventListener('click', function (event) {
+                    event.stopPropagation();
+                });
+    
+                searchbar.addEventListener('click', function (event) {
+                    event.stopPropagation();
+                });
             });
 
             
